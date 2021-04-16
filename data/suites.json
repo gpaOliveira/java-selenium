@@ -5,13 +5,13 @@
     "name" : "selenium.SampleTest",
     "children" : [ {
       "name" : "testHomePageHasAHeader",
-      "uid" : "5f726d1b209bf605",
+      "uid" : "b7a3eda61e7536c7",
       "parentUid" : "691957f87ca3951a21bdf4c8ed6abdb3",
       "status" : "passed",
       "time" : {
-        "start" : 1618589262505,
-        "stop" : 1618589265863,
-        "duration" : 3358
+        "start" : 1618590246865,
+        "stop" : 1618590251751,
+        "duration" : 4886
       },
       "flaky" : false,
       "parameters" : [ ]
