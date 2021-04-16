@@ -1,0 +1,7 @@
+target/
+build/
+bin
+.settings
+.gradle
+.vscode
+java-selenium.jar
