@@ -3,6 +3,7 @@ build/
 bin
 .settings
 .gradle
+.allure
 .vscode
 java-selenium.jar
-test-output.log
+test-output*

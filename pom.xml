@@ -9,6 +9,8 @@
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+    <aspectj.version>1.9.4</aspectj.version>
+    <compiler.version>1.7</compiler.version>
   </properties>
 
     <dependencies>
@@ -52,6 +54,11 @@
            <artifactId>owner</artifactId>
            <version>1.0.12</version>
        </dependency>
+       <dependency>
+            <groupId>io.qameta.allure</groupId>
+            <artifactId>allure-junit4</artifactId>
+            <version>2.13.1</version>
+        </dependency>
    </dependencies>
   <build>
     <resources>
@@ -86,7 +93,30 @@
           <systemPropertyVariables>
             <application.properties>/application.properties</application.properties>
           </systemPropertyVariables>
+          <useSystemClassLoader>false</useSystemClassLoader>
+          <argLine>
+              -javaagent:"${settings.localRepository}/org/aspectj/aspectjweaver/${aspectj.version}/aspectjweaver-${aspectj.version}.jar"
+          </argLine>
+          <properties>
+              <property>
+                  <name>listener</name>
+                  <value>io.qameta.allure.junit4.AllureJunit4</value>
+              </property>
+          </properties>
+          <systemProperties>		
+               <property>		
+                   <name>allure.results.directory</name>		
+                   <value>${project.build.directory}/allure-results</value>		
+               </property>		
+           </systemProperties>
         </configuration>
+        <dependencies>
+            <dependency>
+                <groupId>org.aspectj</groupId>
+                <artifactId>aspectjweaver</artifactId>
+                <version>${aspectj.version}</version>
+            </dependency>
+        </dependencies>
       </plugin>
       <plugin>
         <artifactId>maven-compiler-plugin</artifactId>
@@ -95,6 +125,11 @@
           <source>15</source>
           <target>15</target>
         </configuration>
+      </plugin>
+      <plugin>
+          <groupId>io.qameta.allure</groupId>
+          <artifactId>allure-maven</artifactId>
+          <version>2.10.0</version>
       </plugin>
     </plugins>
   </build>

@@ -80,7 +80,7 @@ public class TestBase {
                 .addComponent(builder.newComponent("SizeBasedTriggeringPolicy").addAttribute("size", "1KB"));
         appenderBuilder = builder.newAppender("LogToRollingFile", "RollingFile")
                 .addAttribute("fileName", fileName)
-                .addAttribute("filePattern", fileName+"-%d{MM-dd-yy-HH-mm-ss}.log.")
+                .addAttribute("filePattern", fileName+"-%d{MM-dd-yy-HH-mm-ss}.log")
                 .add(layoutBuilder)
                 .addComponent(triggeringPolicy);
         builder.add(appenderBuilder);
