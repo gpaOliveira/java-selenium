@@ -1,25 +1,63 @@
 package selenium.pages;
 
+import java.time.Duration;
+
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.PageFactory;
+import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import selenium.context.Context;
 
 /**
  * Abstract class representation of a Page in the UI. Page object pattern
  */
 public abstract class Page {
 
-  protected WebDriver driver;
+	private final int poolingTimeSeconds = 1;
+	protected Context context;
 
-  /*
-   * Constructor injecting the WebDriver interface
-   * 
-   * @param webDriver
-   */
-  public Page(WebDriver driver) {
-    this.driver = driver;
-  }
+	public Page(WebDriver driver) {
+		Context.getInstance().setDriver(driver);
+		PageFactory.initElements(driver(), this);
+	}
+	
+	public static Page create() {
+		return PageFactory.initElements(driver(), Page.class);
+	}
+  
+	public Page() {
+		 this.context = Context.getInstance();
+		 PageFactory.initElements(driver(), this);
+	}
+	
+	public Page(int timeoutInSeconds) {
+		 //https://www.toolsqa.com/selenium-webdriver/page-factory-in-selenium/
+		 this.context = Context.getInstance();
+		 PageFactory.initElements(new AjaxElementLocatorFactory(driver(), timeoutInSeconds), this);
+	}
+  
+	public static WebDriver driver() {
+		return Context.getInstance().getDriver();
+	}
 
-  public String getTitle() {
-    return driver.getTitle();
-  }
+	public String getTitle() {
+		return driver().getTitle();
+	}
+  
+	public String getUrl() {
+		return driver().getCurrentUrl();
+	}
+  
+	public void log(String message) {
+		context.getLogger().info(message);
+	}
+  
+	public void waitForElementVisible(WebElement element, int timeouInSeconds) {
+		new WebDriverWait(driver(), Duration.ofSeconds(timeouInSeconds), Duration.ofSeconds(poolingTimeSeconds)).
+		until(ExpectedConditions.visibilityOf(element));
+	}
 
 }

@@ -1,3 +1,4 @@
+[![CI Status](https://github.com/gpaOliveira/java-selenium/actions/workflows/main.yml/badge.svg)](https://github.com/gpaOliveira/java-selenium/actions/workflows/main.yml)
 
 # Java Selenium Template
 
@@ -5,15 +6,22 @@ For quick tests with java and selenium (chromedriver only), build with graddle a
 
 # Properties
 
-Parameters can be set on `src/test/resources/application.properties`. Currently supporting those entries:
+Parameters can be set on `src/test/resources/application.properties` and if not they will be taken from the bash environment. 
 
-* headless: true or false
+That file is **not** version controlled to avoid having passwords and emails in git. 
+
+Currently those are the entries supported:
+
+* timeout: implicit wait time in seconds (defaults to 3);
+* headless: true or false (defaults to true);
+* user_good_username: the email of a good user to login successfully;
+* user_good_password: the password for a good user to login successfully; 
 
 # Logs
 
 Logging is generated in the traditional maven path `target/surefire-reports` for each test run. A `test-output.log` is generated on the main folder.
 
-They are acessible as artifacts during the Github Actions run. A future step would be to integrate that log with Allure somehow.
+They are accessible as artifacts during the Github Actions run. A future step would be to integrate that log with Allure somehow.
 
 # Report
 

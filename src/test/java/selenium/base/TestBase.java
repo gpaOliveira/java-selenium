@@ -1,6 +1,7 @@
-package selenium;
+package selenium.base;
 
 import java.net.URL;
+import java.time.Duration;
 
 import org.junit.After;
 import org.junit.Before;
@@ -15,6 +16,7 @@ import org.openqa.selenium.chrome.ChromeOptions;
 
 import io.github.bonigarcia.wdm.WebDriverManager;
 import selenium.config.TestConfig;
+import selenium.context.Context;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -42,6 +44,8 @@ public class TestBase {
     @Before
     public void setup() {
     	this.setupLogger();
+    	Context.getInstance().setLogger(LOGGER);
+    	
     	//https://www.linkedin.com/pulse/running-selenium-web-tests-github-actions-moataz-nabil/
         ChromeOptions options = new ChromeOptions();
         if (TestConfig.getConfig().headless()){
@@ -51,6 +55,8 @@ public class TestBase {
         }
         driver = new ChromeDriver(options);
         driver.manage().window().maximize();
+        driver.manage().timeouts().implicitlyWait(Duration.ofSeconds(TestConfig.getConfig().timeout()));
+        Context.getInstance().setDriver(driver);
     }
     
     public void setupLogger() {

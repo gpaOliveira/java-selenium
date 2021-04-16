@@ -7,3 +7,4 @@ bin
 .vscode
 java-selenium.jar
 test-output*
+src/test/resources/application.properties

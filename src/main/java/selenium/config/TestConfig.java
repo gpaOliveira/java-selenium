@@ -2,8 +2,16 @@ package selenium.config;
 
 import org.aeonbits.owner.ConfigFactory;
 
-public class TestConfig{
+public final class TestConfig{
+    
+	private static ITestConfig INSTANCE = null;
+    
+    private TestConfig() {}
+
     public static ITestConfig getConfig(){
-        return ConfigFactory.create(ITestConfig.class);
+		if (INSTANCE == null) {
+			INSTANCE = ConfigFactory.create(ITestConfig.class);
+		}
+		return INSTANCE;
     }
 }
