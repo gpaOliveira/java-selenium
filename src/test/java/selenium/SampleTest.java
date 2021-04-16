@@ -22,5 +22,8 @@ public class SampleTest extends TestBase {
     //driver.get(baseUrl);
     driver.get("https://www.github.com");
     Assert.assertTrue(driver.getTitle().contains("GitHub"));
+    LOGGER.info("all fine!");
+    LOGGER.error("not all fine :( ");
+    LOGGER.warn("maybe all fine...");
   }
 }

@@ -5,3 +5,4 @@ bin
 .gradle
 .vscode
 java-selenium.jar
+test-output.log
