@@ -1,0 +1,55 @@
+{
+  "uid" : "5f726d1b209bf605",
+  "name" : "testHomePageHasAHeader",
+  "fullName" : "selenium.SampleTest.testHomePageHasAHeader",
+  "historyId" : "ed3751166a19108d863a230772092282",
+  "time" : {
+    "start" : 1618589262505,
+    "stop" : 1618589265863,
+    "duration" : 3358
+  },
+  "status" : "passed",
+  "flaky" : false,
+  "beforeStages" : [ ],
+  "afterStages" : [ ],
+  "labels" : [ {
+    "name" : "package",
+    "value" : "selenium"
+  }, {
+    "name" : "testClass",
+    "value" : "selenium.SampleTest"
+  }, {
+    "name" : "testMethod",
+    "value" : "testHomePageHasAHeader"
+  }, {
+    "name" : "suite",
+    "value" : "selenium.SampleTest"
+  }, {
+    "name" : "host",
+    "value" : "fv-az39-180"
+  }, {
+    "name" : "thread",
+    "value" : "2726@fv-az39-180.main(1)"
+  }, {
+    "name" : "framework",
+    "value" : "junit4"
+  }, {
+    "name" : "language",
+    "value" : "java"
+  }, {
+    "name" : "resultFormat",
+    "value" : "allure2"
+  } ],
+  "parameters" : [ ],
+  "links" : [ ],
+  "hidden" : false,
+  "retry" : false,
+  "extra" : {
+    "severity" : "normal",
+    "retries" : [ ],
+    "categories" : [ ],
+    "tags" : [ ]
+  },
+  "source" : "5f726d1b209bf605.json",
+  "parameterValues" : [ ]
+}

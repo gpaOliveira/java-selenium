@@ -1,0 +1,11 @@
+[ {
+  "uid" : "5f726d1b209bf605",
+  "name" : "testHomePageHasAHeader",
+  "time" : {
+    "start" : 1618589262505,
+    "stop" : 1618589265863,
+    "duration" : 3358
+  },
+  "status" : "passed",
+  "severity" : "normal"
+} ]

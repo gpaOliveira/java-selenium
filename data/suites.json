@@ -1,0 +1,21 @@
+{
+  "uid" : "98d3104e051c652961429bf95fa0b5d6",
+  "name" : "suites",
+  "children" : [ {
+    "name" : "selenium.SampleTest",
+    "children" : [ {
+      "name" : "testHomePageHasAHeader",
+      "uid" : "5f726d1b209bf605",
+      "parentUid" : "691957f87ca3951a21bdf4c8ed6abdb3",
+      "status" : "passed",
+      "time" : {
+        "start" : 1618589262505,
+        "stop" : 1618589265863,
+        "duration" : 3358
+      },
+      "flaky" : false,
+      "parameters" : [ ]
+    } ],
+    "uid" : "691957f87ca3951a21bdf4c8ed6abdb3"
+  } ]
+}
