@@ -4,9 +4,9 @@ import org.openqa.selenium.WebDriver;
 
 import selenium.config.TestConfig;
 import selenium.context.Context;
-import selenium.pages.DashboardPage;
-import selenium.pages.LoginError;
-import selenium.pages.LoginPage;
+import selenium.pages.dashboard.DashboardPage;
+import selenium.pages.login.LoginErrorPage;
+import selenium.pages.login.LoginPage;
 
 public class LoginActions {
 	
@@ -64,24 +64,26 @@ public class LoginActions {
 	
 	public void logout() {
 		this.log("from dashboard, let's logout...");
-		DashboardPage.create().logout();
+		(new DashboardPage()).logout();
 	}
 	
 	public boolean isOnLoginPage(int timeoutInSeconds) {
 		LoginPage loginPage = new LoginPage(timeoutInSeconds);
 		loginPage.waitForEmailField();
-		return loginPage.isOnPage();
+		Boolean isOnLoginPage = loginPage.isOnPage();
+		this.log(String.format("isOnLoginPage = %b", isOnLoginPage));
+		return isOnLoginPage;
 	}
 	
 	public boolean isOnDashboard() {
-		Boolean isOnDashboard = DashboardPage.create().isOnPage();
+		Boolean isOnDashboard = (new DashboardPage(3)).isOnPage();
 		this.log(String.format("isOnDashboard = %b", isOnDashboard));
 		return isOnDashboard;
 		
 	}
 	
 	public boolean isOnLoginPageWithErrors() {
-		Boolean isOnLoginPageWithErrors = LoginError.create().isOnPage();
+		Boolean isOnLoginPageWithErrors = LoginErrorPage.create().isOnPage();
 		this.log(String.format("isOnLoginPageWithErrors = %b", isOnLoginPageWithErrors));
 		return isOnLoginPageWithErrors;
 	}

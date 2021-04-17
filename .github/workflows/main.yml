@@ -27,12 +27,16 @@ jobs:
         ./scripts/InstallChrome.sh
     - name: Build with Maven
       run: mvn -B package --file pom.xml allure:report
+      env:
+         user_good_username: ${{ secrets.USER_GOOD_USERNAME }}
+         user_good_password: ${{ secrets.USER_GOOD_PASSWORD }}
     - name: Publish Unit Test Results
       uses: EnricoMi/publish-unit-test-result-action@v1
       if: always()
       with:
         files: target/surefire-reports/*.xml
     - uses: actions/upload-artifact@v2
+      if: always()
       with:
         name: test-outputs
         path: |
@@ -40,6 +44,7 @@ jobs:
           target/surefire-reports/ 
     - name: Deploy GH Pages
       uses: peaceiris/actions-gh-pages@v3
+      if: always()
       with:
         github_token: ${{ secrets.GITHUB_TOKEN }}
         publish_dir: target/site/allure-maven-plugin

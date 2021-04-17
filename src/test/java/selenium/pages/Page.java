@@ -2,8 +2,10 @@ package selenium.pages;
 
 import java.time.Duration;
 
+import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -58,6 +60,18 @@ public abstract class Page {
 	public void waitForElementVisible(WebElement element, int timeouInSeconds) {
 		new WebDriverWait(driver(), Duration.ofSeconds(timeouInSeconds), Duration.ofSeconds(poolingTimeSeconds)).
 		until(ExpectedConditions.visibilityOf(element));
+	}
+	
+	public void clickNotIntheCenter(WebElement elem) {
+		// From https://stackoverflow.com/questions/40546546/how-to-click-on-a-specific-position-of-a-web-element-in-selenium/40571321
+		int width = elem.getSize().getWidth();
+	    Actions act = new Actions(driver());
+	    act.moveToElement(elem).moveByOffset((width/2)-2, 0).click().perform();
+	}
+	
+	public void focusOut() {
+		Actions act = new Actions(driver());
+	    act.moveByOffset(10, 10);
 	}
 
 }

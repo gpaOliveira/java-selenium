@@ -1,4 +1,4 @@
-package selenium.pages;
+package selenium.pages.login;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -10,6 +10,7 @@ import org.openqa.selenium.support.pagefactory.AjaxElementLocatorFactory;
 
 import selenium.config.TestConfig;
 import selenium.context.Context;
+import selenium.pages.Page;
 
 public class LoginPage extends Page {
 
@@ -21,6 +22,12 @@ public class LoginPage extends Page {
   
   @FindBy(how = How.CSS, using = "button[data-autotest-id=\"mr-form-login-btn-signin-1\"]")
   public WebElement signin;
+  
+  @FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-forgot-password-1\"]")
+  public WebElement forgotPassword;
+  
+  @FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-signup-1\"]")
+  public WebElement signup;
   
   public LoginPage(WebDriver webDriver) {
     super(webDriver);

@@ -1,5 +1,6 @@
-package selenium.pages;
+package selenium.pages.dashboard;
 
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
 import org.openqa.selenium.support.FindBy;
@@ -7,6 +8,7 @@ import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
 import selenium.context.Context;
+import selenium.pages.Page;
 
 public class DashboardPage extends Page {
 	
@@ -22,8 +24,16 @@ public class DashboardPage extends Page {
 	@CacheLookup
 	public WebElement logout;
 	
-	public static DashboardPage create() {
-		return PageFactory.initElements(Context.getInstance().getDriver(), DashboardPage.class);
+	public DashboardPage(WebDriver webDriver) {
+		super(webDriver);
+	}
+	  
+	public DashboardPage() {
+		super();
+	}
+	
+	public DashboardPage(int timeoutSeconds) {
+		super(timeoutSeconds);
 	}
 	
 	public Boolean isOnPage() {
