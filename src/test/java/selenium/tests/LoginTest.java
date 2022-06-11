@@ -194,7 +194,7 @@ public class LoginTest extends TestBase {
 		
 		assertEquals(
 			"We didn't get the proper title on Password Recovery Success screen", 
-			"Thank you!", 
+			"Reset your password",
 			passwordActions.getPasswordRecoveryTitle()
 		);
 		

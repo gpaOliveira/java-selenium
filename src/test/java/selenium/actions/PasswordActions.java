@@ -52,7 +52,7 @@ public class PasswordActions {
 	
 	public void proceed() {
 		PasswordRecoveryPage passwordRecovery = this.getPasswordRecovery();
-		passwordRecovery.email.sendKeys("abc");
+		passwordRecovery.email.sendKeys("abc@email.com");
 		passwordRecovery.continueButton.click();
 		this.passwordRecovery = null;
 		this.passwordRecoverySuccess = new PasswordRecoverySuccessPage(3);
