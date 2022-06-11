@@ -20,13 +20,13 @@ public class LoginPage extends Page {
   @FindBy(how = How.ID, using = "password")
   public WebElement password;
   
-  @FindBy(how = How.CSS, using = "button[data-autotest-id=\"mr-form-login-btn-signin-1\"]")
+  @FindBy(how = How.CSS, using = "button[data-testid=\"mr-form-login-btn-signin-1\"]")
   public WebElement signin;
   
-  @FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-forgot-password-1\"]")
+  @FindBy(how = How.CSS, using = "a[data-testid=\"mr-link-forgot-password-1\"]")
   public WebElement forgotPassword;
   
-  @FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-signup-1\"]")
+  @FindBy(how = How.CSS, using = "a[data-testid=\"mr-link-signup-1\"]")
   public WebElement signup;
   
   public LoginPage(WebDriver webDriver) {

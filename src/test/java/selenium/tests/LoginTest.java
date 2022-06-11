@@ -29,11 +29,11 @@ public class LoginTest extends TestBase {
 		loginActions.useGoodCredentials();
 		
 		assertFalse(
-			"Probleams found with good credentials", 
+			"Problems found with good credentials",
 			loginActions.isOnLoginPageWithErrors()
 		);
 		assertTrue(
-			"No Probleams found with good credentials but we are not on Dashboard", 
+			"No Problems found with good credentials but we are not on Dashboard",
 			loginActions.isOnDashboard()
 		);
 		
@@ -57,7 +57,7 @@ public class LoginTest extends TestBase {
 			loginActions.isOnLoginPageWithErrors()
 		);
 		assertFalse(
-			"No Probleams found with BAD credentials, we are not on Dashboard :O", 
+			"No Problems found with BAD credentials, we are not on Dashboard :O",
 			loginActions.isOnDashboard()
 		);
 	}

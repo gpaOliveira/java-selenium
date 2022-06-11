@@ -30,7 +30,7 @@ public class SignupPage extends Page {
 	@FindBy(how = How.ID, using = "password-hint")
 	public WebElement passwordHint;
 	
-	@FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-signin-1\"]")
+	@FindBy(how = How.CSS, using = "a[data-testid=\"mr-link-signin-1\"]")
 	public WebElement backToLogin;
 	
 	@FindBy(how = How.CLASS_NAME, using = "signup__input-hint-bar-wrap")

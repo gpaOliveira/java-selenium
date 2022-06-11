@@ -11,13 +11,13 @@ import selenium.pages.Page;
 
 public class PasswordRecoveryPage extends Page{
 
-	@FindBy(how = How.CSS, using = "button[data-autotest-id=\"mr-link-back-to-signin-1\"]")
+	@FindBy(how = How.CSS, using = "button[data-testid=\"mr-link-back-to-signin-1\"]")
 	public WebElement backToLogin;
 	
-	@FindBy(how = How.CSS, using = "a[data-autotest-id=\"mr-link-signup-1\"]")
+	@FindBy(how = How.CSS, using = "a[data-testid=\"mr-link-signup-1\"]")
 	public WebElement signup;
 	
-	@FindBy(how = How.CSS, using = "button[data-autotest-id=\"mr-form-recovery-btn-send-1\"]")
+	@FindBy(how = How.CSS, using = "button[data-testid=\"mr-form-recovery-btn-send-1\"]")
 	public WebElement continueButton;
 	
 	@FindBy(how = How.ID, using = "email")
