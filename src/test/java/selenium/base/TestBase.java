@@ -1,14 +1,10 @@
 package selenium.base;
 
-import java.net.URL;
 import java.time.Duration;
 
 import org.junit.After;
 import org.junit.Before;
 import org.junit.BeforeClass;
-import org.junit.ClassRule;
-import org.junit.Rule;
-import org.junit.rules.ExternalResource;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -44,7 +40,7 @@ public class TestBase {
     @Before
     public void setup() {
     	this.setupLogger();
-    	Context.getInstance().setLogger(LOGGER);
+        Context.getInstance().setLogger(LOGGER);
     	
     	//https://www.linkedin.com/pulse/running-selenium-web-tests-github-actions-moataz-nabil/
         ChromeOptions options = new ChromeOptions();

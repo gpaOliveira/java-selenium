@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="INFO" monitorInterval="30">
+
+    <!-- Logging Properties -->
+    <Properties>
+        <Property name="LOG_PATTERN">%d %p %c [%t] %m%n</Property>
+        <Property name="FILENAME">test-output.log</Property>
+    </Properties>
+
+    <Appenders>
+
+        <!-- Console Appender -->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+        </Console>
+
+        <!-- File Appenders on need basis -->
+        <RollingFile name="FrameworkLog" fileName="${FILENAME}"
+                     filePattern="${FILENAME}-%d{MM-dd-yy-HH-mm-ss}.log">
+            <PatternLayout pattern="${LOG_PATTERN}"/>
+            <Policies>
+                <SizeBasedTriggeringPolicy size="19500KB" />
+            </Policies>
+            <DefaultRolloverStrategy max="10"/>
+        </RollingFile>
+
+    </Appenders>
+
+    <Loggers>
+
+        <Root level="warn">
+            <AppenderRef ref="Console"/>
+            <AppenderRef ref="FrameworkLog"/>
+        </Root>
+
+    </Loggers>
+
+</Configuration>
