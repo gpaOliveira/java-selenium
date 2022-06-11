@@ -1,5 +1,7 @@
 package selenium.pages.dashboard;
 
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.CacheLookup;
@@ -7,6 +9,7 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.How;
 import org.openqa.selenium.support.PageFactory;
 
+import org.openqa.selenium.support.ui.WebDriverWait;
 import selenium.context.Context;
 import selenium.pages.Page;
 
@@ -20,7 +23,7 @@ public class DashboardPage extends Page {
 	@CacheLookup
 	public WebElement userProfilePopup;
 	
-	@FindBy(how = How.CSS, using = ".user-profile__buttons:last-of-type .user-profile__button-item:last-of-type")
+	@FindBy(how = How.CSS, using = ".user-profile__item:nth-of-type(5)")
 	@CacheLookup
 	public WebElement logout;
 	
@@ -36,8 +39,13 @@ public class DashboardPage extends Page {
 		super(timeoutSeconds);
 	}
 	
-	public Boolean isOnPage() {
-		return this.getUrl().contains("dashboard");
+	public Boolean isOnPage(int timeoutSeconds) {
+		try {
+			waitForElementVisible(userProfile, timeoutSeconds);
+			return this.getUrl().contains("dashboard");
+		} catch (TimeoutException tex) {
+			return false;
+		}
 	}
 	
 	public void logout() {

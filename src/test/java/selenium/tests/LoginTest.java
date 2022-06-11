@@ -58,7 +58,7 @@ public class LoginTest extends TestBase {
 		);
 		assertFalse(
 			"No Problems found with BAD credentials, we are not on Dashboard :O",
-			loginActions.isOnDashboard()
+			loginActions.isOnDashboard(1)
 		);
 	}
 	

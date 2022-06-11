@@ -75,11 +75,14 @@ public class LoginActions {
 		return isOnLoginPage;
 	}
 	
-	public boolean isOnDashboard() {
-		Boolean isOnDashboard = (new DashboardPage(3)).isOnPage();
+	public boolean isOnDashboard(int timeoutInSeconds) {
+		Boolean isOnDashboard = (new DashboardPage(timeoutInSeconds)).isOnPage(timeoutInSeconds);
 		this.log(String.format("isOnDashboard = %b", isOnDashboard));
 		return isOnDashboard;
-		
+	}
+
+	public boolean isOnDashboard() {
+		return isOnDashboard(3);
 	}
 	
 	public boolean isOnLoginPageWithErrors() {
