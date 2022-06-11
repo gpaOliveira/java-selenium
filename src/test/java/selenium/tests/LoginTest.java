@@ -113,7 +113,7 @@ public class LoginTest extends TestBase {
 		
 		assertEquals(
 			"We didn't get the proper small password text", 
-			"Please use 8+ characters for secure password", 
+			"Please use 8+ characters for secure password.", //TODO: why is this the only one ending with "."?
 			signupActions.getPasswordHintText()
 		);
 		
@@ -127,7 +127,7 @@ public class LoginTest extends TestBase {
 		
 		assertEquals(
 			"We didn't get the proper soso password text", 
-			"So-so password", 
+			"Weak password",
 			signupActions.getPasswordHintText()
 		);
 		
