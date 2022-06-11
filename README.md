@@ -15,15 +15,15 @@ For quick tests with java and selenium (chromedriver only), build with graddle a
 +-- src/test/java
     +-- selenium.actions         	# package to isolate complex actions done with Page Objects in order to take that burden out of that and the test cases.
     +-- selenium.base	         	# package with the BaseTest class
-    +-- selenium.pages         	# package with Page Objects from important components in the application under test 
-    +-- selenium.tests         	# package our classes carrying test cases - all based on JUnit 4
+    +-- selenium.pages         	        # package with Page Objects from important components in the application under test 
+    +-- selenium.tests         	        # package our classes carrying test cases - all based on JUnit 4
 +-- src/test/resources		
-	+-- application.properties		# the properties file with our variables - if it doesn't exists, they are taken from the bash environment
+	+-- application.properties	# the properties file with our variables - if it doesn't exists, they are taken from the bash environment
 +-- scripts
-    +-- InstallChrome.sh			# install chrome browser to help our Github actions
+    +-- InstallChrome.sh		# install chrome browser to help our Github actions
 +-- github
     +-- workflows					
-        main.yml					# the file with our CI/CD definition that will run on Github Actions
+        main.yml			# the file with our CI/CD definition that will run on Github Actions
 ```
 
 # Properties
