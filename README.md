@@ -15,7 +15,7 @@ For quick tests with java and selenium (chromedriver only), build with graddle a
 +-- src/test/java
     +-- selenium.actions         	# package to isolate complex actions done with Page Objects in order to take that burden out of that and the test cases.
     +-- selenium.base	         	# package with the BaseTest class
-    +-- selenium.pages         	        # package with Page Objects from important components in the application under test 
+    +-- selenium.pages                  # package with Page Objects from important components in the application under test 
     +-- selenium.tests         	        # package our classes carrying test cases - all based on JUnit 4
 +-- src/test/resources		
 	+-- application.properties	# the properties file with our variables - if it doesn't exists, they are taken from the bash environment
@@ -32,9 +32,16 @@ Our config package is [Owner](http://owner.aeonbits.org/), mostly due to the eas
 
 Parameters can be set on `src/test/resources/application.properties` and if not they will be taken from the bash environment. 
 
-That file is **not** version controlled to avoid having passwords and emails in git. 
+That file is **not** version controlled to avoid having passwords and emails in git, so you have to create one yourself. You can use the sample below as a starting point:
 
-Currently those are the entries supported:
+```
+timeout=3
+headless=false
+user_good_username=secret
+user_good_password=secret
+```
+
+Currently, those are the entries supported:
 
 * timeout: implicit wait time in seconds (defaults to 3);
 * headless: true or false (defaults to true);
@@ -60,6 +67,12 @@ A quick search on github reveal other similar java-selenium-template projects fr
 * [Ardesco/Selenium-Maven-Template](https://github.com/Ardesco/Selenium-Maven-Template/)
 * [sebarmeli/Selenium2-Java-QuickStart-Archetype](https://github.com/sebarmeli/Selenium2-Java-QuickStart-Archetype)
 * [eliasnogueira/selenium-java-lean-test-achitecture](https://github.com/eliasnogueira/selenium-java-lean-test-achitecture)
+
+# Java troubleshooting
+
+## Invalid source release 15
+
+This project was originally created with Java 15. If, when importing this project and running, you see the error `Error: java: invalid source release 15`, you may be like me and using it in a machine with Java 8 for example. Adjust the project with these ideas from [stackoverflow](https://stackoverflow.com/questions/46280859/intellij-idea-error-java-invalid-source-release-1-9).
 
 # Future ideas
 
